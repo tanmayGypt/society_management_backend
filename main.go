@@ -4,21 +4,17 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"github.com/sahilchauhan0603/society_management_backend/router"
 )
 
-// homePage function will handle requests to the root URL.
-func homePage(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Welcome to the HomePage!")
-    fmt.Println("Endpoint Hit: homePage")
-}
-
-// handleRequests function will set up the routes and start the server.
-func handleRequests() {
-    http.HandleFunc("/", homePage)
-    log.Fatal(http.ListenAndServe(":8080", nil))
-}
 
 // main function is the entry point of the program.
 func main() {
-    handleRequests()
+	fmt.Println("SQL DATABASE !!")
+
+	r := router.Router()
+	fmt.Println("Server is getting started...")
+
+	log.Fatal(http.ListenAndServe(":8000", r))
+	fmt.Println("Listening at port 8000 ...")
 }
