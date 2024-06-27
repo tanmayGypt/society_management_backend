@@ -1,0 +1,59 @@
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:2003@society@localhost:3306/societydb"
+}
+
+generator db {
+  provider = "go run github.com/steebchen/prisma-client-go"
+}
+
+
+model Roles {
+  RoleID Int @id @default(autoincrement())
+  RoleName String
+}
+
+model Users {
+  UserID      Int    @id @default(autoincrement())
+  Username    String
+  Password String
+  Email String
+  RoleID Int  
+}
+
+
+// model achievements {
+//   achievement_id Int    @id @default(autoincrement())
+//   alumni_id      Int
+//   title          String
+//   description    String
+//   date_achieved  DateTime
+//   alumni         alumni_profile @relation(fields: [alumni_id], references: [alumni_id])
+// }
+
+// model interests_hobbies {
+//   interest_id    Int    @id @default(autoincrement())
+//   alumni_id      Int
+//   interest_hobby String
+//   alumni         alumni_profile @relation(fields: [alumni_id], references: [alumni_id])
+// }
+
+// model events {
+//   event_id       Int    @id @default(autoincrement())
+//   title          String
+//   description    String
+//   event_type     String
+//   mode_of_event  String
+//   location       String
+//   event_date_time DateTime
+//   alumni_attending alumni_attending[]
+// }
+
+// model alumni_attending {
+//   attend_id      Int    @id @default(autoincrement())
+//   event_id       Int
+//   alumni_id      Int
+//   event          events  @relation(fields: [event_id], references: [event_id])
+//   alumni         alumni_profile @relation(fields: [alumni_id], references: [alumni_id])
+// }
+
