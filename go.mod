@@ -1,3 +1,10 @@
-module github.com/tamayGypt/society_management_backend
+module github.com/sahilchauhan0603/society_management_backend
 
 go 1.22.2
+
+require (
+	github.com/go-sql-driver/mysql v1.8.1
+	github.com/gorilla/mux v1.8.1
+)
+
+require filippo.io/edwards25519 v1.1.0 // indirect
